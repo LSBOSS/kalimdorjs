@@ -23,13 +23,15 @@ for:
       - image: Ubuntu
   cache:
     - "~/.cache/yarn"
+  stack: node $env:nodejs_version
+    
 
 shallow_clone: true
 
 # Install scripts. (runs after repo cloning)
 install:
   # Get the latest stable version of Node.js or io.js
-  - ps: Install-Product node $env:nodejs_version
+  - ps: if ($isWindows) { Install-Product node $env:nodejs_version }
   # install modules
   - yarn install
   - yarn build
