@@ -32,7 +32,7 @@ install:
   - cmd: powershell Install-Product node $env:nodejs_version
   - sh: nvm install $nodejs_version
   - sh: chmod +x ./scripts/build-prod.sh
-  - sh: echo Blub
+  - yarn cache dir
   - node --version
   # install modules
   - yarn install
