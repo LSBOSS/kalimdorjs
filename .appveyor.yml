@@ -23,8 +23,11 @@ for:
       - image: Ubuntu
   cache:
     - "~/.cache/yarn"
-    
-stack: node $env:nodejs_version
+
+stack:
+  matrix:
+    - node 8
+    - node 10
 
 shallow_clone: true
 
