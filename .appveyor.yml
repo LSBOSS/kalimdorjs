@@ -31,6 +31,8 @@ install:
   # Get the latest stable version of Node.js or io.js
   - cmd: powershell Install-Product node $env:nodejs_version
   - sh: nvm install $nodejs_version
+  - sh: chmod +x ./scripts/build-prod.sh
+  - sh: echo Blub
   - node --version
   # install modules
   - yarn install
