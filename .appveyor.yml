@@ -24,17 +24,13 @@ for:
   cache:
     - "~/.cache/yarn"
 
-stack:
-  matrix:
-    - node 8
-    - node 10
-
 shallow_clone: true
 
 # Install scripts. (runs after repo cloning)
 install:
   # Get the latest stable version of Node.js or io.js
-  - ps: if ($isWindows) { Install-Product node $env:nodejs_version }
+  - cmd: powershell Install-Product node $env:nodejs_version
+  - sh: nvm install $nodejs_version
   - node --version
   # install modules
   - yarn install
